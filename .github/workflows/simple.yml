@@ -1,0 +1,7 @@
+name: Shell Commands
+
+# An array of events.  
+on: [push, pull]
+
+
+
