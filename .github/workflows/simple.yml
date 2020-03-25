@@ -1,7 +1,16 @@
 name: Shell Commands
 
-# An array of events.  
-on: [push, pull]
+# A single event or An array of events.  The VScode plugin will autogenerate the events available.
+on: [push]
 
-
-
+jobs: 
+  run-shell-command: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: echo a string
+        run: echo "hello"
+      - name: multiline script
+        # The pipeline symbol allows us to run multiple commands
+        run: | 
+          node -v
+          npm -v 
