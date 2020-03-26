@@ -24,10 +24,12 @@ jobs:
 
   run-windows-commands:
     runs-on: windows-latest
+    # You can specify one or more dependency jobs using 'needs'
     needs: ["run-shell-command"]
     steps: 
       - name: Directory Powershell
         run: Get-Location
       - name: Directory Bash
         run: pwd
+        # Specify a different shell than the default (powershell) shell
         shell: bash
