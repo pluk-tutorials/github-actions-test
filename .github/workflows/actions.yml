@@ -1,0 +1,19 @@
+name: Actions Workflow
+
+on: [push]
+
+jobs: 
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simple JS Action
+        id: greet
+        # you can reference a branch (e.g. master), a tag version (i.e. v1), or a commit number
+        # Using a branch is usually discouraged since it can change.
+        uses: actions/hello-world-javascript-action@v1
+        # Use the 'with' key to provide an input to the action
+        with:
+          who-to-greet: John
+      - name: Log Greeting Time
+        # Reference another action's output
+        run: echo "${{ steps.greet.outputs.time }}" 
