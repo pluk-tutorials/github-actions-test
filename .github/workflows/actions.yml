@@ -23,7 +23,7 @@ jobs:
           echo "${{ github.token }}" 
           # Just ideas: (you'll need to google how to embed your github.token here )
           #    git clone "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          #    git checkout $GITHUB_SHA
+          #    git checkout $GITHUB_SHA 
       - name: Simple JS Action
         id: greet
         # you can reference a branch (e.g. master), a tag version (i.e. v1), or a commit number
