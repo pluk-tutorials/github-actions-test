@@ -11,7 +11,7 @@ jobs:
       - name: List Files After Checkout
         run: | 
           pwd
-          ls 
+          ls -a
       - name: Simple JS Action
         id: greet
         # you can reference a branch (e.g. master), a tag version (i.e. v1), or a commit number
