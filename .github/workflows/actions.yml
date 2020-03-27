@@ -6,10 +6,12 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
-      - name: List Files
+      - name: Checkout
+        uses: actions/checkout@v1 
+      - name: List Files After Checkout
         run: | 
           pwd
-          ls
+          ls 
       - name: Simple JS Action
         id: greet
         # you can reference a branch (e.g. master), a tag version (i.e. v1), or a commit number
