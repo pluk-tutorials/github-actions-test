@@ -11,7 +11,19 @@ jobs:
       - name: List Files After Checkout
         run: | 
           pwd
-          ls -a
+          ls -a 
+      # These env vars are set automatically
+      # This is the commit SHA ID that triggered this action to run
+          echo $GITHUB_SHA
+      # This is the repository name
+          echo $GITHUB_REPOSITORY
+      # This is the workspace directory
+          echo $GITHUB_WORKSPACE
+      # This is a token you can use to authenticate with the github repo
+          echo "${{ github.token }}" 
+      # Just ideas: (you'll need to google how to embed your github.token here )
+      #    git clone "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+      #    git checkout $GITHUB_SHA
       - name: Simple JS Action
         id: greet
         # you can reference a branch (e.g. master), a tag version (i.e. v1), or a commit number
