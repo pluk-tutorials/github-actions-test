@@ -13,7 +13,7 @@ jobs:
         uses: actions/hello-world-javascript-action@v1
         # Use the 'with' key to provide an input to the action
         with:
-          who-to-greet: John 
+          who-to-greet: John
       - name: Log Greeting Time
         # Reference another action's output
         run: echo "${{ steps.greet.outputs.time }}" 
