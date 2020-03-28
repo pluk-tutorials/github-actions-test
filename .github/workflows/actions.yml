@@ -40,10 +40,10 @@ on:
     # At 12:00 on Monday in February" 
     #- cron: "0 12 * FEB MON" 
 
-    # Every 5 minutes 
-    # - cron: "0/5 * * * *" 
+    # Every 2 minutes 
+    # - cron: "0/2 * * * *" 
     # ... and every 6 minutes
-    # - cron: "0/6 * * * *" 
+    # - cron: "0/3 * * * *" 
 
   pull_request:
     # You can specify activity types as objects
