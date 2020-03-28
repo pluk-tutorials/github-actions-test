@@ -1,7 +1,38 @@
 name: Actions Workflow
 
 on: 
-  # push:
+  push:
+    branches:
+      # This workflow would run if we push to "master" only
+      - master
+      # This also works with expressions.  It can match wildcards * to match a word
+      - 'feature/*' 
+      # The ** matches 
+      - 'feature/**'
+      # This would ignore a specific branch feature/featC but all others would match wiht the filters above
+      - '!feature/featC' 
+    # Use branches-ignore to run the workflow on all branches except the specified ones
+    # You cannot use both branches and branches-ignore at the same time.
+    # branches-ignore:
+    # - null 
+
+    tags:
+      # Tags uses the same expression syntax
+      - v1.*
+    
+    paths:
+      # This following would run the workflow whenever a .js file is pushed
+      - '**.js'
+      - '!filename.js"'
+
+    # You can also use paths-ignore.  You cannot use paths and paths-ignore at the same time
+    # paths-ignore:
+    #   - '**docs/**'
+
+  pull_request:
+    branches:
+      # This means the workflow runs if the pull request is merging to "master"
+      - master
   
   # A scheduled event
   # schedule:
@@ -45,13 +76,13 @@ on:
     # ... and every 6 minutes
     # - cron: "0/3 * * * *" 
 
-  pull_request:
+  # pull_request:
     # You can specify activity types as objects
-    types: [closed, assigned, opened, reopened] 
+  #   types: [closed, assigned, opened, reopened] 
 
   # Repository_dispatch is an event that can be triggered manually by sending a HTTP POST request to a URL
-  repository_dispatch:
-    types: [build]
+  # repository_dispatch:
+  #   types: [build]
 
 jobs: 
   run-github-actions:
