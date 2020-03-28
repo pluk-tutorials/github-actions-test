@@ -49,6 +49,10 @@ on:
     # You can specify activity types as objects
     types: [closed, assigned, opened, reopened] 
 
+  # Repository_dispatch is an event that can be triggered manually by sending a HTTP POST request to a URL
+  repository_dispatch:
+    types: [build]
+
 jobs: 
   run-github-actions:
     runs-on: ubuntu-latest
