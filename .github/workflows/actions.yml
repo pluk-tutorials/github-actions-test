@@ -1,7 +1,50 @@
 name: Actions Workflow
 
 on: 
-  push:
+  # push:
+  
+  # A scheduled event
+  schedule:
+    # Minutes, Hours, DayOfMonth, Month, DayOfWeek (UTC Times)
+
+    # Means run every minute, every hour, every DayOfMonth, every Month, every DayOfWeek
+    #- cron: "* * * * * "
+
+    # Means run on minute 1 of every hour, every DayOfMonth, every Month, every DayOfWeek
+    #- cron: "1 * * * * " 
+
+    # Means run on minutes 1 and 5 of every hour, every DayOfMonth, every Month, every DayOfWeek
+    #- cron: "1,5 * * * * " 
+
+    # Means run on minutes 1 to 5 of every hour, every DayOfMonth, every Month, every DayOfWeek
+    #- cron: "1-5 * * * * " 
+
+    # Means every 15 minutes(starting on minute 0), every hour, every DayOfMonth, every Month, every DayOfWeek
+    #- cron: "0/15 * * * * " 
+
+    # Run at 12 and 2 every day
+    #- cron: "0 12,2 * * * " 
+
+    # Run at 12 pm, every month on day 1"
+    #- cron: "0 12 1 * * " 
+
+    # Run at 12 pm, on day 1, in January"
+    #- cron: "0 12 1 1 * " 
+
+    # Run at 12 pm, on Sundays (0-6 where 0 is Sunday and 6 is Saturday)
+    #- cron: "0 12 * * 0" 
+
+    # At 12:00 on Sunday in February" 
+    #- cron: "0 12 * FEB 0" 
+
+    # At 12:00 on Monday in February" 
+    #- cron: "0 12 * FEB MON" 
+
+    # Every 2 minutes 
+    - cron: "0/2 * * * *" 
+    # ... and every 6 minutes
+    - cron: "0/3 * * * *" 
+
   pull_request:
     # You can specify activity types as objects
     types: [closed, assigned, opened, reopened] 
