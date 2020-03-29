@@ -1,0 +1,21 @@
+name: Decrypt File Test
+on: push 
+
+jobs:
+  decrypt:
+    runs-on: ubuntu-latest
+    steps:
+      - users: actions 
+  create-issue:
+    runs-on: ubuntu-latest 
+    steps:
+      # First run the checkout action so we checkout the repository so the files are readable
+      # by the job step commands
+      - uses: actions/checkout@v2
+      # The gpg tool will already be installed on the ubuntu instance
+      - name: Decrypt file
+        env: 
+          PASSPHRASE: ${{ secrets.PASSPHRASE }}
+        run: gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" -- output $HOME/secret.json secret.json.gpg 
+      - name: Print out file contents
+        run: cat $HOME/secret.json
