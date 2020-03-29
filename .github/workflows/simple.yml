@@ -6,9 +6,15 @@ on: [push]
 jobs: 
   run-shell-command: 
     runs-on: ubuntu-latest
+    # The maximum number of minutes the job can take
+    timeout-minutes: 360
     steps: 
       - name: echo a string
         run: echo "hello"
+        # This indicates if there's an error, continue running subsequent steps regardless.
+        continue-on-error: true
+        # The maximum number of minutes before github will cancel a step
+        timeout-minutes: 5
       - name: echo another string
         run: echo "goodbye" 
       - name: multiline script
@@ -16,6 +22,8 @@ jobs:
         run: | 
           node -v
           npm -v 
+        # This would indicate if there was a failure, this step should run
+        # if: failure()
       - name: python Commands
         run: |
           import platform
