@@ -1,6 +1,6 @@
 name: Secret Tokens
+
 on: push
-  # Intentionally ignore this workflow so we don't keep making issues and random files on every push
   branches-ignore:
     - '**'
 
