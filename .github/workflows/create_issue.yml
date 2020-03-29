@@ -1,8 +1,11 @@
 name: Secret Tokens
 
-on: push
-  branches-ignore:
-    - '**'
+on: 
+  push:
+    # Intentionally ignore pushes so we're not generating a random file and issue every time we push
+    # Comment this out if you want to run the jobs below
+    branches-ignore:
+      - '**'
 
 # Specify environment variables that will be set on all jobs
 env:
