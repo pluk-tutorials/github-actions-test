@@ -11,7 +11,8 @@ jobs:
     steps:
       # First run the checkout action so we checkout the repository so the files are readable
       # by the job step commands
-      - uses: actions/checkout@v2
+      - name: Checkout repo
+        uses: actions/checkout@v2
       # The gpg tool will already be installed on the ubuntu instance
       - name: Decrypt file
         env: 
