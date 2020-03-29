@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
       # The gpg tool will already be installed on the ubuntu instance
       - name: Decrypt file
-        run: gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" -- output $HOME/secret.json secret.json.gpg 
+        run: gpg --quiet --batch --yes --passphrase="$PASSPHRASE" --output $HOME/secret.json --decrypt secret.json.gpg 
         env: 
           PASSPHRASE: ${{ secrets.PASSPHRASE }}
       # Test that it successfully decrypted the file
