@@ -12,6 +12,7 @@ jobs:
       # The gpg tool will already be installed on the ubuntu instance
       - name: Decrypt file
         run: |
+          pwd
           ls -la
           gpg --quiet --batch --yes --passphrase="$PASSPHRASE" --output $HOME/secret.json --decrypt ${HOME}/${GITHUB_REPOSITORY}/test_secret_file.txt.gpg
         env: 
