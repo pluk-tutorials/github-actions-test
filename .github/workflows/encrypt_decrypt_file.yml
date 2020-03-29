@@ -3,10 +3,6 @@ on: push
 
 jobs:
   decrypt:
-    runs-on: ubuntu-latest
-    steps:
-      - users: actions 
-  create-issue:
     runs-on: ubuntu-latest 
     steps:
       # First run the checkout action so we checkout the repository so the files are readable
