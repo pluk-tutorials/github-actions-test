@@ -14,7 +14,8 @@ jobs:
         run: |
           pwd
           ls -la
-          gpg --quiet --batch --yes --passphrase="$PASSPHRASE" --output $HOME/secret.json --decrypt .\test_secret_file.txt.gpg
+          echo $HOME
+          gpg --quiet --batch --yes --passphrase="$PASSPHRASE" --output $HOME/secret.json --decrypt ./test_secret_file.txt.gpg
         env: 
           PASSPHRASE: ${{ secrets.PASSPHRASE }}
       # Test that it successfully decrypted the file
