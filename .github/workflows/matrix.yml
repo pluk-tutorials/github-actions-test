@@ -5,11 +5,11 @@ jobs:
   node-version:
     steps:
       - name: Log node version before changing versions
-       run: node -v
+        run: node -v
 
       - uses: actions/setup-node@v1
-       with:
-         node-version: 6
+        with:
+          node-version: 6
 
       - name: Log node version after changing versions
         run: node -v 
