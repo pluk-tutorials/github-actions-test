@@ -5,7 +5,6 @@ jobs:
   node-version:
     steps:
       -name: Log node version 
-       # Display the current node version
        run: node -v
 
       -uses: actions/setup-node@v1
