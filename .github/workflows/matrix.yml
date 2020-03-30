@@ -10,6 +10,22 @@ jobs:
         os: [windows-latest, ubuntu-latest, macos-latest]
         # This will run the job 3 times, once for each of the versions below
         node_version: [6,8,10]
+        
+        # This only allows you to add extra key/value pairs for one of the
+        # permutations of os and node_version above.  It does not allow you to
+        # add an additional permutation.  It has to be a string apparently.
+        include:
+          - os: ubuntu-latest
+            node_version: 8
+            # It will be an empty string if it's not this specified permutation
+            is_ubuntu_8: "true" 
+        
+        # Run the above permutations except for the following
+        exclude:
+          - os: ubuntu-latest
+            node_version: 6
+          - os: macox-latest
+            node_version: 8
 
       # Indicates the maximum number of jobs allowed to run at once.
       max-parallel: 2 
@@ -19,6 +35,9 @@ jobs:
       fail-fast: true
 
     runs-on: ${{ matrix.os }}
+    
+    env:
+      IS_UBUNTU_8: ${{ matrix.is_ubuntu_8 }}
 
     steps:
       - name: Log node version before changing versions
@@ -30,4 +49,6 @@ jobs:
           node-version: ${{ matrix.node_version }}
 
       - name: Log node version after changing versions
-        run: node -v 
+        run: |
+          node -v 
+          echo $IS_UBUNTU_8
