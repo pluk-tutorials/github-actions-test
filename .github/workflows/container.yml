@@ -1,0 +1,23 @@
+Name: Container
+on: push
+
+jobs:
+  node-docker:
+    runs-on: ubuntu-latest
+
+    # The following will download the image specified and run a container with it.
+    container: 
+      # The image from docker-hub.com
+      image: node:13.12.0-alpine3.11
+      # You can specify options
+      # options: cpus 1 --host <host> 
+    steps:
+      # This step will log the node version of the container (not the github VM's version)
+      - name: Log node version
+        run: |
+          node -v
+          cat /etc/os-release
+        
+
+      
+      
