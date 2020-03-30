@@ -20,6 +20,6 @@ jobs:
     steps: 
       - name: Post a user
         # Send a HTTP POST request to create a user to the mongo DB.
-        run: 'curl -X POST http://localhost:3001/api/user -H ''Content-Type: application: application/json'' -d ''{"username": "hello", "address": "dwded"}''' 
+        run: 'curl -X POST http://localhost:3001/api/user -H ''Content-Type: application/json'' -d ''{"username": "hello", "address": "dwded"}''' 
       - name: Get Users
         run: curl http://localhost:3001/api/users 
