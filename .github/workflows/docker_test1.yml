@@ -1,4 +1,4 @@
-name: Dockerized NodeJs App
+name: Docker CUDA 10.2 and Ubuntu 16.04
 on: push
 
 jobs:
