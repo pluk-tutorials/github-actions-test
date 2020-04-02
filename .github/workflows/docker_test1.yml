@@ -6,7 +6,9 @@ jobs:
     # Docker containers can only run on ubuntu, it cannot run on Mac or Windows.
     runs-on: ubuntu-latest 
     container:
-        image: docker://10.2-devel-ubuntu16.04
+      # docker://10.2-devel-ubuntu16.04
+      image: nvidia/cuda:10.2-devel-ubuntu16.04
+
     steps:
       - name: Log running docker containers
         run: docker -ps 
