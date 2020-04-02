@@ -11,4 +11,4 @@ jobs:
 
     steps:
       - name: Log running docker containers
-        run: docker -ps 
+        run: cat /proc/1/cgroup
